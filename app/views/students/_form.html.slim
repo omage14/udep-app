@@ -1,0 +1,39 @@
+= form_with(model: @student) do |f|
+  - if @student.errors.any?
+    div style="color: red"
+      h2 = "#{pluralize(@student.errors.count, "error")} prohibited this student from being saved:"
+      ul
+        - @student.errors.each do |error|
+          li = error.full_message
+
+  .row.form-group style='margin-bottom: 15px'
+    .col-xs-12.col-md-4 style='margin-bottom: 15px'
+      = f.text_field :name, class: "form-control", placeholder: "name"
+    .col-xs-12.col-md-4 style='margin-bottom: 15px'
+      = f.text_field :last_name, class: "form-control", placeholder: "last name"
+    .col-xs-12.col-md-4 style='margin-bottom: 15px'
+      = f.text_field :maiden_name, class: "form-control", placeholder: "last name"
+    .col-xs-12.col-md-4 style='margin-bottom: 15px'
+      = f.text_field :email, class: "form-control", placeholder: "email"
+    .col-xs-12.col-md-4 style='margin-bottom: 15px'
+      = f.text_field :phone, class: "form-control", placeholder: "phone"
+    .col-xs-12.col-md-4 style='margin-bottom: 15px'
+      = f.text_field :mobile_phone, class: "form-control", placeholder: "mobile"
+  .row.form-group style='margin-top: 15px'
+    h1 Student Contact
+    .col-xs-12.col-md-4 style='margin-bottom: 15px'
+      = f.text_field :city, class: "form-control", placeholder: "city"
+    .col-xs-12.col-md-4 style='margin-bottom: 15px'
+      = f.text_field :state, class: "form-control", placeholder: "state"
+    .col-xs-12.col-md-4 style='margin-bottom: 15px'
+      = f.text_field :zip_code, class: "form-control", placeholder: "zip_code"
+    .col-xs-12.col-md-6 style='margin-bottom: 15px'
+      = f.text_field :street, class: "form-control", placeholder: "street"
+    .col-xs-12.col-md-4 style='margin-bottom: 15px'
+      = f.text_field :external_number, class: "form-control", placeholder: "external_number"
+    .col-xs-12.col-md-4 style='margin-bottom: 15px'
+      = f.text_field :internal_number, class: "form-control", placeholder: "internal_number"
+
+  .row.actions
+    .col-lg-12.col-md-12.col-sm-12.col-xs-12.text-right
+      = f.submit class: 'btn btn-primary'
