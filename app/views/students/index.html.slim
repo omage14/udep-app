@@ -1,0 +1,39 @@
+- @students.model
+.row
+  .col-lg-3.col-md-3.col-sm-12.col-xs-12
+    h1 Students List
+  .col-lg-3.col-md-3.col-sm-12.col-xs-12.text-right
+    = link_to "New student", new_student_path, class: 'btn btn-primary'
+  .row
+    .col
+      .container-fluid
+        div.table-responsive
+          table.table.table-striped.table-hover.table-borderless style="width: 100%;"
+            thead.thead-inverse
+              tr
+                th style="width: 10%" Date
+                th style="width: 8%" Name
+                th style="width: 17%" Surname
+                th style="width: 17%" city
+                th style="width: 17%" Email
+                th style="width: 15%" Mobile phone
+                th style="width: 24%"
+            tbody
+              - @students.each do |student|
+                tr
+                  td style="width: 10%" = student.created_at
+                  td style="width: 10%" = student.name
+                  td style="width: 10%" = student.last_name
+                  td style="width: 10%" = student.city
+                  td style="width: 10%" = student.email
+                  td style="width: 10%" = student.mobile_phone
+                  td style="width: 24%"
+                    = link_to 'Show', student_path(student.id), class: 'btn btn-default'
+                    '
+                    = link_to 'Edit', edit_student_path(student.id), class: 'btn btn-default'
+
+/     == render student
+/     p
+/       = link_to "Show this student", student
+
+/ = link_to "New student", new_student_path
